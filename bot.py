@@ -1,3 +1,15 @@
+import discord
+from discord.ext import commands, tasks
+# For web scraping
+import json
+from pprint import pprint
+import requests
+from requests.auth import HTTPBasicAuth
+
+# token = "..."
+
+bot = commands.Bot(command_prefix='!', intents = intents)
+
 @bot.command(brief='Gets champ info.')
 async def aram(ctx, champ=None):
     champ = findChampName(champ)
@@ -83,3 +95,5 @@ async def aram(ctx, champ=None):
             await ctx.send("An error has occurred.")
     else:
         await ctx.send("Please input a champion name.")
+
+bot.run(TOKEN)
